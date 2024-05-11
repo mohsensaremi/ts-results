@@ -147,7 +147,7 @@ export class ErrImpl<E> implements BaseResult<never, E> {
     }
 
     unwrap(): never {
-        throw new Error(`Tried to unwrap Error: ${toString(this.val)}\n${this._stack}`);
+        throw this.val;
     }
 
     map(_mapper: unknown): Err<E> {
